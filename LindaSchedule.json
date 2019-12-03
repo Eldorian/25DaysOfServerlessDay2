@@ -1,0 +1,303 @@
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "BreakTime": {
+                "inputs": {
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['slack']['connectionId']"
+                        }
+                    },
+                    "method": "post",
+                    "path": "/chat.postMessage",
+                    "queries": {
+                        "channel": "CCRLQLS00",
+                        "text": "JRs 25 Day Serverless Challenge Day 2: Return to kitchen, take a break!",
+                        "username": "JRBot"
+                    }
+                },
+                "runAfter": {
+                    "Delay_4m(2)": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ApiConnection"
+            },
+            "Delay_1m": {
+                "inputs": {
+                    "interval": {
+                        "count": 1,
+                        "unit": "Minute"
+                    }
+                },
+                "runAfter": {
+                    "Delay_4m": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "wait"
+            },
+            "Delay_25m": {
+                "inputs": {
+                    "interval": {
+                        "count": 25,
+                        "unit": "Minute"
+                    }
+                },
+                "runAfter": {},
+                "type": "wait"
+            },
+            "Delay_4m": {
+                "inputs": {
+                    "interval": {
+                        "count": 4,
+                        "unit": "Minute"
+                    }
+                },
+                "runAfter": {
+                    "Delay_5m(2)": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "wait"
+            },
+            "Delay_4m(2)": {
+                "inputs": {
+                    "interval": {
+                        "count": 4,
+                        "unit": "Minute"
+                    }
+                },
+                "runAfter": {
+                    "Delay_5m(3)": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "wait"
+            },
+            "Delay_5m": {
+                "inputs": {
+                    "interval": {
+                        "count": 5,
+                        "unit": "Minute"
+                    }
+                },
+                "runAfter": {
+                    "Delay_25m": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "wait"
+            },
+            "Delay_5m(2)": {
+                "inputs": {
+                    "interval": {
+                        "count": 5,
+                        "unit": "Minute"
+                    }
+                },
+                "runAfter": {
+                    "Delay_5m": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "wait"
+            },
+            "Delay_5m(3)": {
+                "inputs": {
+                    "interval": {
+                        "count": 5,
+                        "unit": "Minute"
+                    }
+                },
+                "runAfter": {
+                    "Delay_1m": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "wait"
+            },
+            "DeliverParents": {
+                "inputs": {
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['slack']['connectionId']"
+                        }
+                    },
+                    "method": "post",
+                    "path": "/chat.postMessage",
+                    "queries": {
+                        "channel": "CCRLQLS00",
+                        "text": "JRs 25 Day Serverless Challenge Day 2: Deliver the coffee to Mom and Dad",
+                        "username": "JRBot"
+                    }
+                },
+                "runAfter": {
+                    "Delay_5m(2)": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ApiConnection"
+            },
+            "DeliverSiblings": {
+                "inputs": {
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['slack']['connectionId']"
+                        }
+                    },
+                    "method": "post",
+                    "path": "/chat.postMessage",
+                    "queries": {
+                        "channel": "CCRLQLS00",
+                        "text": "JRs 25 Day Serverless Challenge Day 2: Deliver the coffee to Sister and Brother",
+                        "username": "JRBot"
+                    }
+                },
+                "runAfter": {
+                    "Delay_5m(3)": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ApiConnection"
+            },
+            "Fill2MoreCups": {
+                "inputs": {
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['slack']['connectionId']"
+                        }
+                    },
+                    "method": "post",
+                    "path": "/chat.postMessage",
+                    "queries": {
+                        "channel": "CCRLQLS00",
+                        "text": "JRs 25 Day Serverless Challenge Day 2: Return to the kitchen, fill two more cups",
+                        "username": "JRBot"
+                    }
+                },
+                "runAfter": {
+                    "Delay_4m": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ApiConnection"
+            },
+            "LightCandles": {
+                "inputs": {
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['slack']['connectionId']"
+                        }
+                    },
+                    "method": "post",
+                    "path": "/chat.postMessage",
+                    "queries": {
+                        "channel": "CCRLQLS00",
+                        "text": "JRs 25 Day Serverless Challenge Day 2: Light the Candles",
+                        "username": "JRBot"
+                    }
+                },
+                "runAfter": {
+                    "Delay_5m": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ApiConnection"
+            },
+            "Pour2Cups": {
+                "inputs": {
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['slack']['connectionId']"
+                        }
+                    },
+                    "method": "post",
+                    "path": "/chat.postMessage",
+                    "queries": {
+                        "channel": "CCRLQLS00",
+                        "text": "JRs 25 Day Serverless Challenge Day 2: Pour 2 cups",
+                        "username": "JRBot"
+                    }
+                },
+                "runAfter": {
+                    "Delay_25m": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ApiConnection"
+            },
+            "RelightCancles": {
+                "inputs": {
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['slack']['connectionId']"
+                        }
+                    },
+                    "method": "post",
+                    "path": "/chat.postMessage",
+                    "queries": {
+                        "channel": "CCRLQLS00",
+                        "text": "JRs 25 Day Serverless Challenge Day 2: Relight the Candles",
+                        "username": "JRBot"
+                    }
+                },
+                "runAfter": {
+                    "Delay_1m": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ApiConnection"
+            },
+            "StartCoffee": {
+                "inputs": {
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['slack']['connectionId']"
+                        }
+                    },
+                    "method": "post",
+                    "path": "/chat.postMessage",
+                    "queries": {
+                        "channel": "CCRLQLS00",
+                        "text": "JRs 25 Day Serverless Challenge Day 2: Start the coffee, set out 4 cups",
+                        "username": "JRBot"
+                    }
+                },
+                "runAfter": {},
+                "type": "ApiConnection"
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {},
+        "parameters": {
+            "$connections": {
+                "defaultValue": {},
+                "type": "Object"
+            }
+        },
+        "triggers": {
+            "Linda_December_13": {
+                "recurrence": {
+                    "frequency": "Year",
+                    "interval": 1,
+                    "startTime": "2019-12-13T08:00:00Z",
+                    "timeZone": "W. Europe Standard Time"
+                },
+                "type": "recurrence"
+            }
+        }
+    },
+    "parameters": {
+        "$connections": {
+            "value": {
+                "slack": {
+                    "connectionId": "/subscriptions/9fbb56b2-113b-4ac9-9a7e-a7bf77e9bdd2/resourceGroups/cookmart/providers/Microsoft.Web/connections/slack",
+                    "connectionName": "slack",
+                    "id": "/subscriptions/9fbb56b2-113b-4ac9-9a7e-a7bf77e9bdd2/providers/Microsoft.Web/locations/westcentralus/managedApis/slack"
+                }
+            }
+        }
+    }
+}
